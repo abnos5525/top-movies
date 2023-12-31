@@ -11,7 +11,7 @@ import store from "./store/index.js";
 
 const router = createBrowserRouter([
     {
-        path:"/",
+        path:"/top-movies",
         element: <Home/>,
         errorElement:<NotFound/>,
     },
