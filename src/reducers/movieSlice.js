@@ -12,7 +12,7 @@ const initialState = {
 export const fetchMovies = createAsyncThunk("movies/fetchMovies",
     async (page) =>{
         try {
-            const res = await axios.get(`http://moviesapi.ir/api/v1/movies?page=${page}`)
+            const res = await axios.get(`https://moviesapi.ir/api/v1/movies?page=${page}`)
             return res.data
         }catch (err){
             console.log(err)
@@ -23,7 +23,7 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies",
 export const fetchMovie = createAsyncThunk("movies/fetchMovie",
     async (movieId) =>{
         try {
-            const res = await axios.get(`http://moviesapi.ir/api/v1/movies/${movieId}`)
+            const res = await axios.get(`https://moviesapi.ir/api/v1/movies/${movieId}`)
             return res.data
         }catch (err){
             console.log(err)
@@ -35,7 +35,7 @@ export const fetchMoviesByGenre = createAsyncThunk("movies/fetchMoviesByGenre",
     async ({ genre, page }) => {
         try {
         const res = await axios.get(
-            `http://moviesapi.ir/api/v1/genres/${genre}/movies?page=${page}`
+            `https://moviesapi.ir/api/v1/genres/${genre}/movies?page=${page}`
         );
         return res.data;
         }catch (err){
