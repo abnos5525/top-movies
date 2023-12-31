@@ -13,3 +13,6 @@ Currently, two official plugins are available:
 # Guide
 - npm i
 - npm run dev
+
+# You can watch it online
+https://abnos5525.github.io/top-movies
