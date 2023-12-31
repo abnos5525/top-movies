@@ -10,7 +10,6 @@ Currently, two official plugins are available:
 # About App
 - this app is about 250 top movies in the century
 
-#guide
-
+# Guide
 - npm i
 - npm run dev
