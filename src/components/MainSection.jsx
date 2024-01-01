@@ -18,13 +18,7 @@ const MainSection = ({ movies, loading }) => {
 
     return (
         <Grid xs={10} sx={{
-            mx:{
-                xl:"auto",
-                lg:"auto",
-                md:"auto",
-                sm:"auto",
-                xs:"auto"
-            }
+            mx:0
         }}>
             {
                 loading ? (

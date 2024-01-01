@@ -1,7 +1,25 @@
 import {Drawer} from "@mui/material";
 import ChipsInfo from "../filtersection/ChipsInfo.jsx";
+import {useState} from "react";
 
 const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
+
+    const [selectedGenres, setSelectedGenres] = useState([]);
+
+    const handleGenreClick = (genre) => {
+        const isSelected = selectedGenres.includes(genre);
+        const updatedGenres = isSelected
+            ? selectedGenres.filter((selectedGenre) => selectedGenre !== genre)
+            : [...selectedGenres, genre];
+
+        setSelectedGenres(updatedGenres);
+        onGenreChange(updatedGenres);
+    };
+
+    const handleCloseDrawer = () => {
+        setDrawerOpen(false);
+    };
+
     return(
         <Drawer xs={1} sm={0} md={0} lg={0} xl={0} sx={{ float:"left",position:"absolute",
             left:0,
@@ -18,9 +36,9 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
                 lg:"none",
                 xl:"none"
             }}}
-                open={drawerOpen} variant="temporary" onClose={()=> setDrawerOpen(false)}>
+                open={drawerOpen} variant="temporary" onClose={handleCloseDrawer}>
 
-           <ChipsInfo onGenreClick={onGenreChange} />
+           <ChipsInfo onGenreClick={handleGenreClick} selectedGenres={selectedGenres} />
 
         </Drawer>
     )
