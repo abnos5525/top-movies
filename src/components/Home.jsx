@@ -34,25 +34,25 @@ const Home = ()=>{
     }, [page]);
     /////////////////////////////////////////////////////////////////
 
-    const savePaginationData = (page, selectedGenres) => {
-        const paginationData = { page, selectedGenres };
-        localStorage.setItem('paginationData', JSON.stringify(paginationData));
-    };
-
-    const loadPaginationData = () => {
-        const savedData = localStorage.getItem('paginationData');
-        return savedData ? JSON.parse(savedData) : null;
-    };
+    // const savePaginationData = (page, selectedGenres) => {
+    //     const paginationData = { page, selectedGenres };
+    //     localStorage.setItem('paginationData', JSON.stringify(paginationData));
+    // };
+    //
+    // const loadPaginationData = () => {
+    //     const savedData = localStorage.getItem('paginationData');
+    //     return savedData ? JSON.parse(savedData) : null;
+    // };
 
 
     useEffect(() => {
         setLoading(true);
 
-        const savedPaginationData = loadPaginationData();
-        if (savedPaginationData) {
-            setPage(savedPaginationData.page);
-            setSelectedGenres(savedPaginationData.selectedGenres);
-        }
+        // const savedPaginationData = loadPaginationData();
+        // if (savedPaginationData) {
+        //     setPage(savedPaginationData.page);
+        //     setSelectedGenres(savedPaginationData.selectedGenres);
+        // }
 
         if (selectedGenres !== 0) {
             dispatch(fetchMoviesByGenre({ genre: selectedGenres, page }))
@@ -69,7 +69,7 @@ const Home = ()=>{
     const handlePageChange = (event, value) => {
         setLoading(true)
         setPage(value)
-        savePaginationData(value, selectedGenres);
+        // savePaginationData(value, selectedGenres);
         setTimeout(()=>{
             setLoading(false)
         },2000)
@@ -79,7 +79,7 @@ const Home = ()=>{
         setLoading(true);
         setSelectedGenres(genres);
         setPage(1);
-        savePaginationData(1, genres);
+        // savePaginationData(1, genres);
         setTimeout(()=>{
             setLoading(false)
         },3000)
