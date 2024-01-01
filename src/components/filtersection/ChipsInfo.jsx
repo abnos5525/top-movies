@@ -1,7 +1,7 @@
 import { Box, Chip } from "@mui/material";
 import {useState} from "react";
 
-const ChipsInfo = ({ onGenreClick,width }) => {
+const ChipsInfo = ({ onGenreClick }) => {
     const genreMapping = [
         {
             id: 1,
@@ -81,7 +81,7 @@ const ChipsInfo = ({ onGenreClick,width }) => {
                 label={genre.persianName}
                  onClick={() => handleChipClick(genre.id)}
                 sx={{
-                     width: {width},
+                     width: "98%",
                      cursor: "pointer",
                      backgroundColor: selectedChipId === genre.id ? "info.main" : "primary.light",
                      color: "#fff",

@@ -9,7 +9,8 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
             "& .MuiDrawer-paper": {
                 width: 230,
                 backgroundColor:"primary.main",
-                float:"left"
+                position:"absolute",
+                left:0
             },
             display:{
                 xs:"block",
@@ -20,7 +21,7 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
             }}}
                 open={drawerOpen} variant="temporary" onClose={()=> setDrawerOpen(false)}>
 
-           <ChipsInfo onGenreClick={onGenreChange} width="100%"/>
+           <ChipsInfo onGenreClick={onGenreChange} />
 
         </Drawer>
     )
