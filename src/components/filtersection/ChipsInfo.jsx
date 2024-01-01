@@ -1,7 +1,7 @@
 import { Box, Chip } from "@mui/material";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
-const ChipsInfo = ({ onGenreClick,selectedGenres  }) => {
+const ChipsInfo = ({ onGenreClick,selectedGenre }) => {
     const genreMapping = [
         {
             id: 1,
@@ -61,38 +61,16 @@ const ChipsInfo = ({ onGenreClick,selectedGenres  }) => {
         },
     ]
 
-    // const [selectedChipId, setSelectedChipId] = useState(0);
-    //
-    // const handleChipClick = (genreId) => {
-    //     // اگر روی همان Chip کلیک شده باشد، از حالت انتخاب خارج شود
-    //     const newSelectedChipId = selectedChipId === genreId ? 0 : genreId
-    //     setSelectedChipId(newSelectedChipId)
-    //
-    //     // ارسال اطلاعات به تابع پدر (onGenreClick)
-    //     onGenreClick(newSelectedChipId !== 0 ? newSelectedChipId : 0)
-    // }
-
-    const [localSelectedGenres, setLocalSelectedGenres] = useState([]);
-
-    useEffect(() => {
-        setLocalSelectedGenres(selectedGenres || []); // اضافه کردن چک برای وجود selectedGenres
-    }, [selectedGenres]);
+    const [selectedChipId, setSelectedChipId] = useState(selectedGenre);
 
     const handleChipClick = (genreId) => {
-        if (!localSelectedGenres) return; // افزودن چک برای وجود localSelectedGenres
+        // اگر روی همان Chip کلیک شده باشد، از حالت انتخاب خارج شود
+        const newSelectedChipId = selectedChipId === genreId ? 0 : genreId
+        setSelectedChipId(newSelectedChipId)
 
-        const newSelectedGenres = [...localSelectedGenres];
-
-        const isSelected = newSelectedGenres.includes(genreId);
-        if (isSelected) {
-            newSelectedGenres.splice(newSelectedGenres.indexOf(genreId), 1);
-        } else {
-            newSelectedGenres.push(genreId);
-        }
-
-        setLocalSelectedGenres(newSelectedGenres);
-        onGenreClick(newSelectedGenres);
-    };
+        // ارسال اطلاعات به تابع پدر (onGenreClick)
+        onGenreClick(newSelectedChipId !== 0 ? newSelectedChipId : 0)
+    }
 
     return (
         <Box sx={{my: 3,ml:2}}>
@@ -105,7 +83,7 @@ const ChipsInfo = ({ onGenreClick,selectedGenres  }) => {
                 sx={{
                      width: "98%",
                      cursor: "pointer",
-                     backgroundColor: localSelectedGenres.includes(genre.id) ? "info.main" : "primary.light",
+                     backgroundColor: selectedChipId === genre.id ? "info.main" : "primary.light",
                      color: "#fff",
                      mb: 2,
                  }}

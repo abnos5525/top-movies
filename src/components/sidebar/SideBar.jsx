@@ -4,20 +4,11 @@ import {useState} from "react";
 
 const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
 
-    const [selectedGenres, setSelectedGenres] = useState([]);
+    const [selectedGenre, setSelectedGenre] = useState(0);
 
-    const handleGenreClick = (genre) => {
-        const isSelected = selectedGenres.includes(genre);
-        const updatedGenres = isSelected
-            ? selectedGenres.filter((selectedGenre) => selectedGenre !== genre)
-            : [...selectedGenres, genre];
-
-        setSelectedGenres(updatedGenres);
-        onGenreChange(updatedGenres);
-    };
-
-    const handleCloseDrawer = () => {
-        setDrawerOpen(false);
+    const handleGenreChange = (genreId) => {
+        setSelectedGenre(genreId);
+        onGenreChange(genreId);
     };
 
     return(
@@ -36,9 +27,9 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
                 lg:"none",
                 xl:"none"
             }}}
-                open={drawerOpen} variant="temporary" onClose={handleCloseDrawer}>
+                open={drawerOpen} variant="temporary" onClose={()=> setDrawerOpen(false)}>
 
-           <ChipsInfo onGenreClick={handleGenreClick} selectedGenres={selectedGenres} />
+           <ChipsInfo onGenreClick={handleGenreChange} selectedGenre={selectedGenre} />
 
         </Drawer>
     )
