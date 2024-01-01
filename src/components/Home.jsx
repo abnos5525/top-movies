@@ -7,6 +7,7 @@ import {styled} from "@mui/system"
 import {useDispatch, useSelector} from "react-redux";
 import {fetchMovie, fetchMovies, fetchMoviesByGenre} from "../reducers/movieSlice.js";
 import Header from "./Header.jsx";
+import SideBar from "./sidebar/SideBar.jsx";
 
 const Home = ()=>{
 
@@ -21,6 +22,8 @@ const Home = ()=>{
     const [page,setPage] = useState(1)
     const [loading,setLoading] = useState(false)
     const [selectedGenres, setSelectedGenres] = useState(0);
+
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -88,9 +91,10 @@ const Home = ()=>{
     return(
         <Box ref={boxRef}>
             <Grid container>
-                <Header/>
+                <SideBar setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} onGenreChange={handleGenreChange} />
+                <Header setDrawerOpen={setDrawerOpen} />
                 <FilterSection onGenreChange={handleGenreChange}/>
-                <MainSection movies={movies} loading={loading}/>
+                <MainSection movies={movies} loading={loading} />
                 <CenteredPagination count={pageCount} page={page} sx={{m:"auto", my:5}} color="info" onChange={handlePageChange}/>
             </Grid>
         </Box>

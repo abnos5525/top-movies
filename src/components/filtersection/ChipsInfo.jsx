@@ -73,7 +73,7 @@ const ChipsInfo = ({ onGenreClick }) => {
     }
 
     return (
-        <Box sx={{mt: 3}}>
+        <Box sx={{my: 3,ml:2}}>
             {
                 genreMapping.map((genre) => (
                 <Chip
@@ -81,7 +81,7 @@ const ChipsInfo = ({ onGenreClick }) => {
                 label={genre.persianName}
                  onClick={() => handleChipClick(genre.id)}
                 sx={{
-                     width: "90%",
+                     width: "98%",
                      cursor: "pointer",
                      backgroundColor: selectedChipId === genre.id ? "info.main" : "primary.light",
                      color: "#fff",

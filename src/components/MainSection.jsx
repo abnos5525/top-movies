@@ -17,7 +17,15 @@ const MainSection = ({ movies, loading }) => {
     };
 
     return (
-        <Grid xs={10} sx={{ mx: "auto" }}>
+        <Grid xs={10} sx={{
+            mx:{
+                xl:"auto",
+                lg:"auto",
+                md:"auto",
+                sm:"auto",
+                xs:5
+            }
+        }}>
             {
                 loading ? (
                 <SkeletonMovies count={10} style={style} height={260} />
