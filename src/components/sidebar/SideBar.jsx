@@ -20,7 +20,7 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
             }}}
                 open={drawerOpen} variant="temporary" onClose={()=> setDrawerOpen(false)}>
 
-           <ChipsInfo onGenreClick={onGenreChange}/>
+           <ChipsInfo onGenreClick={onGenreChange} width="100%"/>
 
         </Drawer>
     )

@@ -19,7 +19,7 @@ const FilterSection = ({ onGenreChange }) =>{
                 انتخاب ژانر
             </Typography>
 
-            <ChipsInfo onGenreClick={onGenreChange} />
+            <ChipsInfo onGenreClick={onGenreChange} width="98%" />
 
         </Grid>
     )
