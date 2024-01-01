@@ -49,14 +49,14 @@ const MovieDetails = () =>{
     const onNextControll = (e)=>{
         e.preventDefault()
         if(movieId <=250) {
-            navigate(`/movie/${parseInt(movieId) + 1}`)
+            navigate(`/top-movies/movie/${parseInt(movieId) + 1}`)
         }
     }
 
     const onPrevControll = (e)=>{
         e.preventDefault()
         if(movieId >=1){
-            navigate(`/movie/${parseInt(movieId)-1}`)
+            navigate(`/top-movies/movie/${parseInt(movieId)-1}`)
         }
     }
 
