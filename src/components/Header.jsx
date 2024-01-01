@@ -5,7 +5,7 @@ const Header = ({setDrawerOpen}) =>{
 
     const navigate = useNavigate()
     return(
-        <Box sx={{width:"100%", backgroundColor:"primary.main",
+        <Box sx={{width:"100%", backgroundColor:"primary.main",textAlign:"center",
             height:"70px",borderBottom:1, borderBottomColor:"#6b6b6b",boxShadow:"2px 5px 3px rgba(0,0,0,.4)"}}>
 
             <Fab onClick={()=>setDrawerOpen(true)} variant="extended" sx={{

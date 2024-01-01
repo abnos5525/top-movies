@@ -7,7 +7,6 @@ const SideBar = ({setDrawerOpen,drawerOpen,onGenreChange}) =>{
             height:"100vh",
             overflowX:"hidden",overflowY:"auto", zIndex:"6",
             "& .MuiDrawer-paper": {
-                width: 230,
                 backgroundColor:"primary.main"
             },
             display:{
