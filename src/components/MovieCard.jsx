@@ -7,7 +7,7 @@ const MovieCard = ({movie})=>{
     const {id, title, poster} = movie
     return(
         <Grid xs={12} sm={5} md={3} lg={2} xl={2} sx={{m:2,display:"flex",float:"left",textAlign:"center"}}>
-            <Link to={`/movie/${id}`}>
+            <Link to={`/top-movies/movie/${id}`}>
                 <Card
                     sx={{borderRadius:2,
                         width:{
