@@ -91,7 +91,7 @@ const Home = ()=>{
     return(
         <Box ref={boxRef}>
             <Grid container>
-                {/*<SideBar setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} onGenreChange={handleGenreChange} />*/}
+                <SideBar setDrawerOpen={setDrawerOpen} drawerOpen={drawerOpen} onGenreChange={handleGenreChange} />
                 <Header setDrawerOpen={setDrawerOpen} />
                 <FilterSection onGenreChange={handleGenreChange}/>
                 <MainSection movies={movies} loading={loading} />

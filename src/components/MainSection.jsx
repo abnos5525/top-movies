@@ -23,7 +23,7 @@ const MainSection = ({ movies, loading }) => {
                 lg:"auto",
                 md:"auto",
                 sm:"auto",
-                xs:5
+                xs:"auto"
             }
         }}>
             {
